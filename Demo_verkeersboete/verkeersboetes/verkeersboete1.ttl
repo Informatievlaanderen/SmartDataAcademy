@@ -1,0 +1,28 @@
+@prefix ns0: <https://politiezonex.be/ns/verkeersboete#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ns1: <https://schema.org/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+
+<https://politiezonex.be/id/boete/1>
+  a <https://politiezonex.be/ns/verkeersboete#Verkeersboete> ;
+  ns0:reden "Te snel gereden: 70 km/u ipv 50 km/u"^^xsd:string ;
+  ns0:toegewezenAan <https://example.org/id/persoon/xy> ;
+  ns0:uitgegevenDoor <https://politiezonex.be/id/organisatie/politiezonex> ;
+  ns1:amount [
+    a ns1:Amount ;
+    ns1:currency "EUR"^^xsd:string ;
+    ns1:value "50"^^xsd:string
+  ] .
+
+<https://example.org/id/persoon/xy>
+  a <http://www.w3.org/ns/person#Person> ;
+  dc:title "Doe"^^rdf:langString ;
+  foaf:givenName "Jane"^^xsd:string .
+
+<https://politiezonex.be/id/organisatie/politiezonex>
+  a org:Organization ;
+  dc:title "politiezone Gent"^^rdf:langString .
+

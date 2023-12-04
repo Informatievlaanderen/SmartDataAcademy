@@ -1,0 +1,54 @@
+{
+  "@context": [
+    {
+      "Persoon": "http://www.w3.org/ns/person#Person",
+      "naam": {
+        "@id": "http://purl.org/dc/terms/title",
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      },
+      "Organisatie": "http://www.w3.org/ns/org#Organization",
+      "organisatienaam": {
+        "@id": "http://purl.org/dc/terms/title",
+        "@type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      },
+      "achternaam": {
+        "@id": "http://xmlns.com/foaf/0.1/familyName",
+        "@type": "http://www.w3.org/2001/XMLSchema#string"
+      },
+      "voornaam": {
+        "@id": "http://xmlns.com/foaf/0.1/givenName",
+        "@type": "http://www.w3.org/2001/XMLSchema#string",
+        "@container": "@set"
+      },
+      "boete": "https://politiezonex.be/ns/verkeersboete#",
+      "schema": "https://schema.org/",
+      "Verkeersboete": "boete:Verkeersboete",
+      "uitgegevenDoor": "boete:uitgegevenDoor",
+      "toegewezenAan": "boete:toegewezenAan",
+      "bedrag": "schema:amount",
+      "Bedrag": "schema:Amount",
+      "eenheid": "schema:currency",
+      "Bedrag.hoeveelheid": "schema:value",
+      "reden": "boete:reden"
+    }
+  ],
+  "@id": "https://politiezonex.be/id/boete/1",
+  "@type": "Verkeersboete",
+  "bedrag": {
+    "@type": "Bedrag",
+    "Bedrag.hoeveelheid": "50",
+    "eenheid": "EUR"
+  },
+  "reden": "Te snel gereden: 70 km/u ipv 50 km/u",
+  "toegewezenAan": {
+    "@id": "https://example.org/id/persoon/xy",
+    "@type": "Persoon",
+    "voornaam": "Jane",
+    "naam": "Doe"
+  },
+  "uitgegevenDoor": {
+    "@id": "https://politiezonex.be/id/organisatie/politiezonex",
+    "@type": "Organisatie",
+    "organisatienaam": "politiezone Gent"
+  }
+}

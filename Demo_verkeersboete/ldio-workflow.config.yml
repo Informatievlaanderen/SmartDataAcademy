@@ -1,0 +1,18 @@
+server:
+  port: 9003
+orchestrator:
+  input:
+    name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpIn
+  transformers:
+    - name: be.vlaanderen.informatievlaanderen.ldes.ldi.VersionObjectCreator
+      config:
+        member-type: https://politiezonex.be/ns/verkeersboete#Verkeersboete
+        delimiter: "/"
+        date-observed-property: ""
+        generatedAt-property: http://www.w3.org/ns/prov#generatedAtTime
+        versionOf-property: http://purl.org/dc/terms/isVersionOf
+  outputs:
+    - name: be.vlaanderen.informatievlaanderen.ldes.ldio.LdioHttpOut
+      config:
+        endpoint: http://ldes-server:8080/verkeersboete
+        content-type: application/n-quads
