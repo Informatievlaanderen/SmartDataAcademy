@@ -1,0 +1,33 @@
+<https://private-api.gipod.vlaanderen.be/api/v1/taxonomies/zonetypes/0fb72ef7-6ac9-4a70-b295-a30ea215d250> <http://www.w3.org/2004/02/skos/core#prefLabel> "HinderZone"@nl-BE .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://purl.org/dc/terms/modified> "2020-10-23T09:11:21.307Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.vlaanderen.be/ns/mobiliteit#Mobiliteitshinder> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://www.w3.org/ns/prov#generatedAtTime> "2021-01-06T21:38:54.01Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <https://data.vlaanderen.be/ns/mobiliteit#zone> <https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448/zones/a6cc71dc-527d-480e-a00f-6fb3619e5c47> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://purl.org/dc/elements/1.1/creator> <https://private-api.gipod.vlaanderen.be/api/v1/organisations/403bce42-4e39-0f0f-8add-2634e6ce7e21> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <https://gipod.vlaanderen.be/ns/gipod#gipodId> "10626448"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://purl.org/dc/terms/description> "8000 Brugge, Nieuwe Gentweg 77: Inname openbaar domein met lichte hinder"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <https://data.vlaanderen.be/ns/mobiliteit#Inname.status> <https://private-api.gipod.vlaanderen.be/api/v1/taxonomies/statuses/a411c53e-db33-436a-9bb9-d62d535b661d> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <https://data.vlaanderen.be/ns/mobiliteit#periode> _:Bd02cbae49990f57038ac77d032e59a7c .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <https://data.vlaanderen.be/ns/mobiliteit#beheerder> <https://private-api.gipod.vlaanderen.be/api/v1/organisations/403bce42-4e39-0f0f-8add-2634e6ce7e21> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://purl.org/dc/elements/1.1/contributor> <https://private-api.gipod.vlaanderen.be/api/v1/organisations/403bce42-4e39-0f0f-8add-2634e6ce7e21> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://www.w3.org/ns/adms#versionNotes> "MobilityHindranceWasImportedFromLegacy"@nl-BE .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://purl.org/dc/terms/created> "2020-10-23T08:23:05.427Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> <http://www.w3.org/ns/adms#identifier> _:Bc1cf1c54715f5632b379ac055c7b73da .
+<https://private-api.gipod.vlaanderen.be/api/v1/ldes/mobility-hindrances> <https://w3id.org/tree#member> <https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> .
+_:Bf9761e1e02e1bf7fb5e04f916664e86f <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/locn#Geometry> .
+_:Bf9761e1e02e1bf7fb5e04f916664e86f <http://www.opengis.net/ont/geosparql#asWKT> "<http://www.opengis.net/def/crs/EPSG/9.9.1/31370> POLYGON ((70437.4038193976 211093.044963568, 70437.8890790592 211091.104725681, 70452.4408632169 211094.744173142, 70451.9556035553 211096.68441103, 70437.4038193976 211093.044963568))"^^<http://www.opengis.net/ont/geosparql#wktLiteral> .
+_:Bd02cbae49990f57038ac77d032e59a7c <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://data.europa.eu/m8g/PeriodOfTime> .
+_:Bd02cbae49990f57038ac77d032e59a7c <http://data.europa.eu/m8g/endTime> "2020-10-31T18:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+_:Bd02cbae49990f57038ac77d032e59a7c <http://data.europa.eu/m8g/startTime> "2020-10-30T06:00:00Z"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+<https://private-api.gipod.vlaanderen.be/api/v1/organisations/403bce42-4e39-0f0f-8add-2634e6ce7e21> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/org#Organization> .
+<https://private-api.gipod.vlaanderen.be/api/v1/organisations/403bce42-4e39-0f0f-8add-2634e6ce7e21> <http://www.w3.org/2004/02/skos/core#prefLabel> "Politiezone Brugge"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448/zones/a6cc71dc-527d-480e-a00f-6fb3619e5c47> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.vlaanderen.be/ns/mobiliteit#Zone> .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448/zones/a6cc71dc-527d-480e-a00f-6fb3619e5c47> <http://www.w3.org/ns/locn#geometry> _:Bf9761e1e02e1bf7fb5e04f916664e86f .
+<https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448/zones/a6cc71dc-527d-480e-a00f-6fb3619e5c47> <https://data.vlaanderen.be/ns/mobiliteit#Zone.type> <https://private-api.gipod.vlaanderen.be/api/v1/taxonomies/zonetypes/0fb72ef7-6ac9-4a70-b295-a30ea215d250> .
+<https://private-api.gipod.vlaanderen.be/api/v1/taxonomies/statuses/a411c53e-db33-436a-9bb9-d62d535b661d> <http://www.w3.org/2004/02/skos/core#prefLabel> "Onbekend"@nl-BE .
+_:Bc1cf1c54715f5632b379ac055c7b73da <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/adms#Identifier> .
+_:Bc1cf1c54715f5632b379ac055c7b73da <http://www.w3.org/2004/02/skos/core#notation> "10626448"^^<https://gipod.vlaanderen.be/ns/gipod#gipodId> .
+_:Bc1cf1c54715f5632b379ac055c7b73da <http://www.w3.org/ns/adms#schemaAgency> "https://gipod.vlaanderen.be"@nl-BE .
+<https://private-api.gipod.vlaanderen.be/api/v1/events/8804455> <https://gipod.vlaanderen.be/ns/gipod#gipodId> "8804455"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<https://private-api.gipod.vlaanderen.be/api/v1/events/8804455> <https://data.vlaanderen.be/ns/mobiliteit#Inname.heeftGevolg> <https://private-api.gipod.vlaanderen.be/api/v1/mobility-hindrances/10626448> .
+<https://private-api.gipod.vlaanderen.be/api/v1/events/8804455> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <https://data.vlaanderen.be/ns/mobiliteit#Evenement> .
