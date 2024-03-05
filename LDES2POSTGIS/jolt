@@ -1,0 +1,18 @@
+[
+  {
+    "operation": "modify-overwrite-beta",
+    "spec": {
+      "*": {
+        "telling": "=toInteger",
+        "auto": "=toInteger",
+        "fiets": "=toInteger",
+        "zwaar": "=toInteger",
+        "voetganger": "=toInteger",
+        "snelheidv85": "=toInteger"
+
+
+      }
+    }
+  }
+]
+

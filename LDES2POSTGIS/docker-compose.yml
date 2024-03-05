@@ -1,0 +1,113 @@
+version: '3.3'
+volumes:
+  nifi-database-repository:
+  nifi-flowfile-repository:
+  nifi-content-repository:
+  nifi-provenance-repository:
+  nifi-state:
+  nifi-logs:
+  nifi-nars:
+  nifi-conf:
+  geo-db-data:
+
+networks:
+  front-tier:
+    driver: bridgea
+  back-tier:
+    driver: bridge
+  geomobility:
+    name: ${USECASE_NAME:-geomobility-onboarding}_network
+services:
+  ldes-mongodb:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldes-mongodb
+    image: mongo:${MONGODB_TAG:-latest}
+    ports:
+      - ${MONGODB_PORT:-27017}:27017
+    networks:
+      - geomobility
+      
+  nifi:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldes-workbench-nifi
+    image: ldes/ldi-workbench-nifi:1.0.0-SNAPSHOT
+    restart: unless-stopped
+    ports:
+      # HTTPS
+      - 8443:8443/tcp
+    volumes:
+      - ./nifi-extensions:/opt/nifi/nifi-current/extensions
+    environment:
+      - NIFI_UI_PORT=8443
+      - SINGLE_USER_CREDENTIALS_USERNAME=admin
+      - SINGLE_USER_CREDENTIALS_PASSWORD=admin123456789
+      - NIFI_WORKFLOW_LISTEN_PORT=9005
+      - NIFI_JVM_HEAP_INIT=8g
+      - NIFI_JVM_HEAP_MAX=8g
+    networks:
+      - geomobility
+  graphdb2:
+    image: ontotext/graphdb:10.4.2
+    container_name: graphdb2
+    ports:
+      # HTTP
+      - 7200:7200
+    networks:
+      - geomobility
+
+  ldio-workbench:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldio-workbench
+    image: ldes/ldi-orchestrator:latest
+    environment:
+      - SIS_DATA=/tmp
+      - JAVA_TOOL_OPTIONS="-Xmx1280m"
+    volumes:
+      - ./workbench/config.yml:/ldio/application.yml:ro
+      - ./workbench/sparql:/ldio/sparql:ro
+      - ./workbench/jsonld:/ldio/jsonld:ro
+      - ./workbench/tmp/epsg:/tmp/Databases:rw
+    ports:
+      - ${LDIO_WORKBENCH_PORT:-8081}:8080
+    networks:
+      - geomobility
+    profiles:
+      - delay-started
+  ldes-server:
+    container_name: ${USECASE_NAME:-geomobility-onboarding}_ldes-server
+    image: ldes/ldes-server:${LDES_SERVER_TAG:-2.4.1-SNAPSHOT}
+    environment:
+      - SIS_DATA=/tmp
+    volumes:
+      - ./server/config.yml:/application.yml:ro
+      - ./server/tmp/epsg:/tmp/Databases:rw
+    ports:
+      - 8080:8080
+    networks:
+      - geomobility
+    depends_on:
+      - ldes-mongodb
+      
+  dba:
+    image: dpage/pgadmin4:latest
+    container_name: ldes-pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ldes@ldes.be
+      PGADMIN_DEFAULT_PASSWORD: ldes
+    ports:
+      - 8001:80
+    depends_on:
+      - postgis
+    networks:
+      - geomobility
+
+  postgis:
+    build: ./docker/postgres
+    container_name: ldes-postgis
+    environment:
+      POSTGRES_DB: geomobility
+      POSTGRES_USER: ldes
+      POSTGRES_PASSWORD: ldes
+    volumes:
+        - geo-db-data:/var/lib/postgresql
+    ports:
+      - 5432:5432
+    networks:
+      - geomobility

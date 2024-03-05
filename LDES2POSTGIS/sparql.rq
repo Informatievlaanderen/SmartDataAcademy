@@ -1,0 +1,38 @@
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX meting: <https://implementatie.data.vlaanderen.be/ns/vsds-verkeersmetingen#>
+PREFIX location: <https://telraam.net/en/location/>
+PREFIX versionof: <http://purl.org/dc/terms/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT (?s AS ?object) (STR(?value) AS ?telling) (STR(?bike) AS ?fiets) (STR(?car) AS ?auto) (STR(?heavy) AS ?zwaar) (STR(?pedestrian) AS ?voetganger) (STR(?time) AS ?tijd) ?sensor ?geometry
+WHERE { 
+    ?s meting:Verkeerstelling.tellingresultaat ?value .
+    OPTIONAL { 
+        ?tempBike versionof:isVersionOf ?s .
+        FILTER(CONTAINS(STR(?tempBike), "bike"))
+        BIND(?value AS ?bike)
+    }
+    OPTIONAL { 
+        ?tempCar versionof:isVersionOf ?s .
+        FILTER(CONTAINS(STR(?tempCar), "car"))
+        BIND(?value AS ?car)
+    }
+    OPTIONAL { 
+        ?tempHeavy versionof:isVersionOf ?s .
+        FILTER(CONTAINS(STR(?tempHeavy), "heavy"))
+        BIND(?value AS ?heavy)
+    }
+    OPTIONAL { 
+        ?tempPedestrian versionof:isVersionOf ?s .
+        FILTER(CONTAINS(STR(?tempPedestrian), "pedestrian"))
+        BIND(?value AS ?pedestrian)
+    }
+    ?s prov:generatedAtTime ?time .
+    ?s <http://www.w3.org/ns/sosa/madeBySensor> ?sensor
+    OPTIONAL {
+        ?s <https://data.vlaanderen.be/ns/verkeersmetingen#geobserveerdObject> ?geobserveerd .
+        ?geobserveerd <https://data.vlaanderen.be/ns/verkeersmetingen#bemonsterdObject> ?bemonsterd.
+        ?bemonsterd <https://implementatie.data.vlaanderen.be/ns/vsds-verkeersmetingen#Rijrichting.netwerkreferentieelement> ?rijrichting .
+        ?rijrichting <https://data.vlaanderen.be/ns/netwerk#Link.geometriemiddellijn> ?middellijn .
+        ?middellijn <http://www.opengis.net/ont/geosparql#asWKT> ?geometry .
+    }
+}
